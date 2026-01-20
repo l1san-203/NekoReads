@@ -1,0 +1,266 @@
+body {
+  background-color: #0b1220;
+  color: #e6ecff;
+  font-family: 'Coolvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #1b2f6b;
+  gap: 10px;
+}
+
+.topBar input {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  width: 200px;
+}
+
+.topBar button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #3c5cff;
+  color: white;
+  cursor: pointer;
+}
+
+.logoText {
+  font-family: 'Coolvetica', sans-serif;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.coverWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.coverWrap img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.coverTitle {
+  margin-top: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #e6ecff;
+}
+
+.coverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: opacity 0.3s;
+}
+
+.coverWrap:hover .coverOverlay {
+  opacity: 1;
+}
+
+.coverOverlay button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #3c5cff;
+  color: white;
+  font-weight: bold;
+}
+
+.detailHeader {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.detailCover {
+  width: 250px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.detailInfo p {
+  margin: 5px 0;
+}
+
+.detailButtons {
+  margin: 10px 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.chapterList {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px 20px;
+}
+
+.chapterList button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #3c5cff;
+  color: white;
+}
+
+.tinyBanner {
+  background: #1b2f6b;
+  padding: 6px 20px;
+  text-align: left;
+}
+
+.tinyBanner .logoText {
+  font-family: 'Coolvetica', sans-serif;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chapterHeader {
+  padding: 10px 20px;
+  background: #0d1a3a;
+  color: #e6ecff;
+}
+
+.readerPages {
+  display: flex;
+  flex-direction: column; /* vertical scroll */
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+.readerPages img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.readerControls {
+  margin: 15px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.topControls {
+  margin-bottom: 10px;
+}
+
+.bottomControls {
+  margin-top: 10px;
+}
+
+#commentsSection {
+  margin-top: 30px;
+  padding: 10px;
+  background: #1b2f6b;
+  border-radius: 12px;
+}
+
+#commentsSection textarea {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  padding: 6px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topBar input {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    padding: 10px;
+  }
+
+  .detailHeader {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detailCover {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  .detailInfo {
+    width: 100%;
+  }
+
+  .readerPages img {
+    height: auto;
+  }
+}.advRow {
+  display: flex;
+  gap: 10px;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+#genreContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 20px;
+}
+
+.genreBtn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #3c5cff;
+  color: white;
+  font-size: 13px;
+}
+
+.genreBtn.activeInclude {
+  background: #2ecc71; /* green for included */
+}
+
+.genreBtn.activeExclude {
+  background: #e74c3c; /* red for excluded */
+}
+

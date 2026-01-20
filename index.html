@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NekoRead</title>
+<link href="https://fonts.googleapis.com/css2?family=Coolvetica&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Banner -->
+<header class="topBar">
+  <h1 class="logoText" onclick="backToHome()">NekoRead</h1>
+  <input id="mainSearch" placeholder="Search manhua..." oninput="basicSearch(this.value)">
+  <button onclick="toggleAdvancedSearch()">Advanced Search</button>
+  <button onclick="showHotUpdates()">Hot Updates</button>
+</header>
+
+<!-- Advanced Search -->
+<section id="advancedSearch" style="display:none;">
+  <div class="advRow">
+    <input id="advTitle" placeholder="Manga Name">
+    <input id="advAuthor" placeholder="Author Name">
+    <select id="statusFilter">
+      <option value="">Status</option>
+      <option value="Ongoing">Ongoing</option>
+      <option value="Hiatus">Hiatus</option>
+      <option value="Completed">Completed</option>
+    </select>
+    <button onclick="resetFilters()">Reset</button>
+  </div>
+
+  <div id="genreContainer"></div>
+</section>
+
+
+<!-- Homepage -->
+<main id="homePage">
+  <div id="results" class="grid"></div>
+</main>
+
+<!-- Detail Page -->
+<section id="detailPage" style="display:none;">
+  <div class="detailHeader">
+    <img id="detailCover" src="" alt="" class="detailCover">
+    <div class="detailInfo">
+      <h2 id="detailTitle"></h2>
+      <h4 id="detailAlt"></h4>
+      <p><strong>Author:</strong> <span id="detailAuthor"></span></p>
+      <p><strong>Status:</strong> <span id="detailStatus"></span></p>
+      <p><strong>Genres:</strong> <span id="detailGenres"></span></p>
+      <p><strong>Chapters:</strong> <span id="detailChapters"></span></p>
+      <p><strong>Last Updated:</strong> <span id="detailUpdated"></span></p>
+      <p><strong>Views:</strong> <span id="detailViews"></span></p>
+      <p id="detailDescription"></p>
+    </div>
+  </div>
+  <div class="detailButtons">
+    <button onclick="backToHome()">Back to Home</button>
+    <button onclick="startReadingFromDetail()">Read</button>
+  </div>
+  <div id="chapterList" class="chapterList"></div>
+</section>
+
+<!-- Reader Page -->
+<section id="readerPage" style="display:none;">
+  <header class="tinyBanner">
+    <h2 class="logoText" onclick="backToHome()">NekoRead</h2>
+  </header>
+
+  <div class="chapterHeader">
+    <h3 id="chapterTitle"></h3>
+    <p id="chapterInfo"></p>
+    <div class="readerControls topControls">
+      <button onclick="prevChapter()">Previous Chapter</button>
+      <button onclick="nextChapter()">Next Chapter</button>
+      <button onclick="backToDetail()">Back to Detail</button>
+    </div>
+  </div>
+
+  <div id="readerPages" class="readerPages"></div>
+
+  <div class="readerControls bottomControls">
+    <button onclick="prevChapter()">Previous Chapter</button>
+    <button onclick="nextChapter()">Next Chapter</button>
+    <button onclick="backToDetail()">Back to Detail</button>
+  </div>
+
+  <div id="commentsSection">
+    <h3>Comments</h3>
+    <div id="commentsList"></div>
+    <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+    <button onclick="postComment()">Post Comment</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
